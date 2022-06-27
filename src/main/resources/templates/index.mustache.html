@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <title>Contacts</title>
+</head>
+<body>
+<header>
+    <h1>Contacts</h1>
+</header>
+<main>
+    <section hx-get="/contacts" hx-trigger="load, every 2s, newContact from:body" ></section>
+    <hr/>
+    <form hx-post="/contacts" hx-headers="{ {{{ _csrf.headerName }}}: {{{_csrf.token }}} }">
+        <label for="name">Name:</label>
+        <input type="text" name="fullName" id="name" />
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" />
+        <label for="birth_date">Birth Day:</label>
+        <input type="date" name="birthDate" id="birth_date"  required pattern="\d{4}-\d{2}-\d{2}" />
+        <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}"/>
+        <button type="submit">Create</button>
+    </form>
+</main>
+</body>
+</html>

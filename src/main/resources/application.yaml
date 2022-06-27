@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  security:
+    user:
+      password: password
+  mustache:
+    suffix: .mustache.html

@@ -1,0 +1,20 @@
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>birthdate</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#contacts}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{fullName}}</td>
+        <td>{{email}}</td>
+        <td>{{birthDate}}</td>
+    </tr>
+    {{/contacts}}
+    </tbody>
+</table>
